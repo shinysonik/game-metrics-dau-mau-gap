@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Каркас H1: экран после партии</title>
+<style>
+:root { --line: #8c959f; --soft: #f2f3f5; --text: #1f2328; --muted: #57606a; --new: #fff3b0; --newline: #bf8700; }
+* { box-sizing: border-box; }
+body { font-family: sans-serif; color: var(--text); background: #fff; margin: 0; padding: 16px; line-height: 1.35; }
+.stamp { position: fixed; top: 8px; right: 12px; font-size: 12px; border: 1px dashed var(--text); padding: 2px 6px; background: #fff; z-index: 10; }
+h1 { font-size: 20px; margin: 0 0 4px; padding-right: 180px; }
+h2 { font-size: 16px; margin: 20px 0 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 13px; margin: 8px 0 16px; }
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 1000px) { .compare { grid-template-columns: 1fr; } }
+.screen { border: 2px solid var(--line); border-radius: 6px; padding: 10px; min-width: 0; }
+.screen > h2 { margin: 0 0 8px; }
+.bar { border: 1px solid var(--line); padding: 6px 8px; margin-bottom: 10px; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; }
+.row { display: flex; gap: 10px; align-items: flex-start; }
+.col { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.box { border: 1px solid var(--line); background: var(--soft); padding: 8px; font-size: 13px; }
+.board { aspect-ratio: 1; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 13px;
+         background: repeating-conic-gradient(#d0d7de 0 25%, #f6f8fa 0 50%) 0 0 / 25% 25%; }
+.board span { background: #fff; padding: 2px 6px; border: 1px solid var(--line); }
+.btn { border: 1px solid var(--text); border-radius: 4px; padding: 6px 10px; text-align: center; font-size: 13px; background: #fff; }
+.btn.main { font-weight: bold; border-width: 2px; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.tile { border: 1px solid var(--line); background: #fff; padding: 10px 4px; text-align: center; font-size: 15px; }
+.tile small { display: block; font-size: 11px; color: var(--muted); }
+.menu { border: 1px solid var(--line); background: #fff; padding: 4px 8px; font-size: 12px; }
+.menu div { padding: 2px 0; }
+.muted { color: var(--muted); font-size: 12px; margin: 0; }
+.new { outline: 3px dashed var(--newline); outline-offset: 1px; background: var(--new); }
+.gone { opacity: .35; text-decoration: line-through; }
+.mark { display: inline-block; min-width: 18px; height: 18px; border-radius: 9px; background: var(--text); color: #fff; font-size: 11px; font-weight: bold;
+        text-align: center; line-height: 18px; margin-right: 4px; text-decoration: none; }
+.fields p { margin: 4px 0 12px; }
+.fields b { display: block; }
+</style>
+</head>
+<body>
+<div class="stamp">Учебный прототип, не Lichess</div>
+
+<h1>H1. После поражения — тупик: экран после партии</h1>
+<p class="muted">Каркас «было / стало» для экрана после партии. Рабочий набросок, не Lichess.</p>
+
+<div class="legend">
+  <span class="btn new">новый элемент</span>
+  <span class="btn gone">убранный элемент</span>
+  <span><span class="mark">1</span> пометка — объяснение внизу</span>
+</div>
+
+<div class="compare">
+
+<section class="screen">
+<h2>Было</h2>
+<div class="bar"><b>lichess</b><span>Играть</span><span>Задачи</span><span>Обучение</span><span>Смотреть</span><span>Сообщество</span><span>Инструменты</span><span style="margin-left:auto">ник_новичка</span></div>
+<div class="row">
+  <div class="col" style="flex:0.9">
+    <div class="box">Блиц 3+0 · Рейтинговая<br>Мат · Белые победили</div>
+    <div class="box">Чат партии<br><span class="muted">сообщений нет</span></div>
+  </div>
+  <div class="col" style="flex:1.6">
+    <div class="board"><span>Доска: финальная позиция</span></div>
+  </div>
+  <div class="col" style="flex:1">
+    <div class="box">Соперник 1523 · 1:12</div>
+    <div class="box">Ходы партии<br>1. e4 e5 2. Bc4 Nc6 3. Qh5 Nf6 4. Qxf7#<br><b>1–0</b></div>
+    <div class="box">ник_новичка 1500? → 1318? · 2:41</div>
+    <div class="btn main">Реванш</div>
+    <div class="btn">Найти другого соперника</div>
+    <div class="btn">Анализировать партию</div>
+  </div>
+</div>
+</section>
+
+<section class="screen">
+<h2>Стало</h2>
+<div class="bar"><b>lichess</b><span>Играть</span><span>Задачи</span><span>Обучение</span><span>Смотреть</span><span>Сообщество</span><span>Инструменты</span><span style="margin-left:auto">ник_новичка</span></div>
+<div class="row">
+  <div class="col" style="flex:0.9">
+    <div class="box">Блиц 3+0 · Рейтинговая<br>Мат · Белые победили</div>
+    <div class="box">Чат партии<br><span class="muted">сообщений нет</span></div>
+  </div>
+  <div class="col" style="flex:1.6">
+    <div class="board"><span>Доска: финальная позиция</span></div>
+  </div>
+  <div class="col" style="flex:1">
+    <div class="box">Соперник 1523 · 1:12</div>
+    <div class="box">Ходы партии<br>1. e4 e5 2. Bc4 Nc6 3. Qh5 Nf6 4. Qxf7#<br><b>1–0</b></div>
+    <div class="box">ник_новичка 1500? → 1318? · 2:41</div>
+    <div class="btn main">Реванш</div>
+    <div class="btn">Найти другого соперника</div>
+    <div class="btn">Анализировать партию</div>
+    <div class="box new">
+      <span class="mark">1</span><b>Что пошло не так?</b> <span class="mark">4</span><span class="btn" style="padding:0 6px">×</span><br>
+      <div class="btn" style="margin-top:6px"><span class="mark">2</span>Найти ошибку</div>
+      <div class="btn" style="margin-top:6px"><span class="mark">3</span>Решить задачу</div>
+      <p class="muted" style="margin-top:6px"><span class="mark">4</span>Не показывать</p>
+    </div>
+  </div>
+</div>
+</section>
+
+</div>
+
+<h2>Что изменилось и зачем</h2>
+<ol>
+  <li><b>Пометка 1 — блок «Что пошло не так?»</b> (жёлтая рамка, новый элемент). Появляется под кнопками на экране после партии только у новичка, который проиграл. Проверяет гипотезу H1: после поражения новичок видит тупик (только «Реванш» и «Найти другого соперника»), а блок даёт ему понятный следующий шаг. Кнопки «Реванш», «Найти другого соперника» и «Анализировать партию» остаются на своих местах, с тем же весом: блок ничего не убирает и не прячет.</li>
+  <li><b>Пометка 2 — кнопка «Найти ошибку».</b> Запускает компьютерный анализ этой партии и открывает режим «Учись на своих ошибках» (он на Lichess уже есть: возвращает в позицию, где ты ошибся, и предлагает найти ход лучше). Анализ запускается только по нажатию (0,5 ₽ за партию).</li>
+  <li><b>Пометка 3 — кнопка «Решить задачу».</b> Готовая задача из раздела «Задачи» (почти бесплатно для сервера): для тех, кому не хочется разбирать партию. Задача сразу показывает результат.</li>
+  <li><b>Пометка 4 — отказ.</b> Крестик «×» закрывает блок для этой партии одним нажатием, ссылка «Не показывать» отключает блок насовсем (как просили опытные игроки, сигнал 12). Закрыть так же просто, как нажать любую другую кнопку; сайт не пристыживает и не спрашивает «точно ли ты сдаёшься».</li>
+</ol>
+
+<div class="fields">
+<h2>Три вопроса к каркасу</h2>
+<p><b>Кто видит изменение?</b> Только новички (аккаунт младше 7 дней и меньше 10 сыгранных партий) и только после поражения; сайт определяет это по дате регистрации аккаунта и результату партии, которые у него и так есть, новых данных не собирается. Опытные игроки блок не видят. Половина новичков, выбранных случайно, блок не получает: это контрольная группа для измерения.</p>
+<p><b>Как от этого отказаться?</b> «×» закрывает блок для этой партии (1 клик), «Не показывать» отключает насовсем (1 клик); включить обратно можно в настройках профиля.</p>
+<p><b>Новые строки текста.</b> Четыре короткие строки: «Что пошло не так?», «Найти ошибку», «Решить задачу», «Не показывать»; все короткие, переведут за 1–2 недели; пока строку не перевели, видна английская.</p>
+</div>
+
+</body>
+</html>
